@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { TextField, Button, Container, Paper, Typography, Link, Grid } from '@mui/material';
+import { TextField, Button, Container, Paper, Typography,  Grid } from '@mui/material';
 import GoogleIcon from '@mui/icons-material/Google';
 import MicrosoftIcon from '@mui/icons-material/Microsoft';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -15,14 +16,14 @@ const Login = () => {
   return (
     <Container
       component="main"
-      maxWidth="100%"
+      maxWidth="50%" // Adjusted the width to make it slightly smaller
       style={{
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column',
         height: '100vh',
-        backgroundImage: "url('https://images6.alphacoders.com/133/1330235.png')",
+        backgroundImage: "url('https://e1.pxfuel.com/desktop-wallpaper/1010/529/desktop-wallpaper-full-train-backgrounds-1920x1080-railway.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -33,7 +34,7 @@ const Login = () => {
             variant="contained"
             style={{ backgroundColor: '#4285F4', color: 'white' }}
             onClick={() => console.log('Google button clicked')}
-            startIcon={<GoogleIcon />}
+            startIcon={<GoogleIcon style={{ color: 'blue' }} />} // Make the Google icon colorful
           >
             Google
           </Button>
@@ -43,7 +44,7 @@ const Login = () => {
             variant="contained"
             style={{ backgroundColor: '#0078D4', color: 'white' }}
             onClick={() => console.log('Microsoft button clicked')}
-            startIcon={<MicrosoftIcon />}
+            startIcon={<MicrosoftIcon style={{ color: 'red' }} />} // Make the Microsoft icon colorful
           >
             Microsoft
           </Button>
@@ -56,8 +57,9 @@ const Login = () => {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          height: '300px',
+          height: '250px',
           color: 'ActiveCaption',
+          width: '30%', // Adjusted the width to make it slightly smaller
         }}
       >
         <Typography component="h4" variant="h5">
@@ -68,7 +70,6 @@ const Login = () => {
           variant="outlined"
           margin="normal"
           fullWidth
-          style={{ maxWidth: '300px' }} 
           value={username || email}
           onChange={(e) => setUsername(e.target.value)}
         />
@@ -79,24 +80,18 @@ const Login = () => {
           variant="outlined"
           margin="normal"
           fullWidth
-          style={{ maxWidth: '300px' }}
           value={password}
           onChange={(o) => setPassword(o.target.value)}
         />
-        <Typography>
-          <Link color="primary" href="https://mui.com/">
-            New User ? Sign Up !!
-          </Link>{' '}
-        </Typography>
-        <Button
+   <Link to="/Booking" >    <Button
           variant="contained"
           style={{ fontWeight: 'bold' }}
           color="primary"
           fullWidth
           onClick={handleLogin}
         >
-          Login
-        </Button>
+       Login
+        </Button> </Link>
       </Paper>
     </Container>
   );

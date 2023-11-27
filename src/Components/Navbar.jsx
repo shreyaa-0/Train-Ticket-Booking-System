@@ -5,22 +5,22 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-import AdbIcon from '@mui/icons-material/Adb';
+import TrainIcon from '@mui/icons-material/Train';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import SearchIcon from '@mui/icons-material/Search';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
 import Avatar from '@mui/material/Avatar';
 import InputBase from '@mui/material/InputBase';
 import Container from '@mui/material/Container';
 import ImageListItem from '@mui/material/ImageListItem';
-import ImageList from '@mui/material/ImageList';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import { Link } from 'react-router-dom';
 
-
-
-const pages = ['ABOUT US', 'FAQs','TERMS & CONDITIONS', 'SIGNUP', 'LOGIN'];
+const pages = ['ABOUT US', 'FAQs', 'TERMS & CONDITIONS', 'SIGNUP', 'LOGIN'];
 const settings = ['Profile', 'Dashboard', 'Book Tickets', 'Travel History', 'Logout'];
-
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
@@ -44,12 +44,16 @@ function Navbar() {
 
   const handlePageClick = (page) => {
     setSelectedPage(page);
-    handleCloseNavMenu(); // Close the menu after clicking a page
+    handleCloseNavMenu();
   };
 
   const itemData = [
     {
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmQV0GPJ1rb9GZS2voZieXJvpQsld9FGjCRw&usqp=CAU',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6_5CUNKY2PBeqHQ2bs2yn43iURfI0urGxvw&usqp=CAU',
+      title: '',
+    },
+    {
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX2HUsvs6szwZVPiiKa4GN6bZw_OTFVBGR_g&usqp=CAU',
       title: 'about',
     },
     {
@@ -88,11 +92,11 @@ function Navbar() {
       img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1PSiALbFgwirRpevX5ZZRHW_tuhzwON7Qpw&usqp=CAU',
       title: 's',
     },
-    {
+   /*{
       img: 'https://searchengineland.com/wp-content/seloads/2015/06/question-ask-faq-raise-hand-ss-1920.jpg',
       title: 'sh',
     },
-    /*{
+    {
       img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0wqcNV5SDsWsE8mgaIfk1AmDyEVUFibOjuCyaub8X35o-8pjHA-hiER2I3cCwdK4rVUw&usqp=CAU',
       title: 'abc',
     },*/
@@ -101,9 +105,11 @@ function Navbar() {
   return (
     <div>
       {/* Navbar */}
-      <AppBar position="static" sx={{ padding: '20px' }}>
+      <AppBar position="static" sx={{ padding: '20px', background: 'black' }}>
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+      
+            <TrainIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, fontSize: '2rem', color: 'white' }} />
+        
           <Typography
             variant="h6"
             noWrap
@@ -118,17 +124,20 @@ function Navbar() {
               color: 'inherit',
               textDecoration: 'none',
             }}
-          >
-            LOGO
-          </Typography>
-
-          {/* Updated button rendering for pages */}
+          ></Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={() => handlePageClick(page)}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{
+                  my: 2,
+                  color: 'white',
+                  display: 'block',
+                  '&:hover': {
+                    backgroundColor: 'grey',
+                  },
+                }}
               >
                 {page === 'SIGNUP' || page === 'LOGIN' ? (
                   <Typography variant="body1">{page}</Typography>
@@ -138,17 +147,16 @@ function Navbar() {
               </Button>
             ))}
           </Box>
-          {/* Search Bar */}
           <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center' }}>
             <InputBase
-              placeholder="Search"
+              placeholder="Search..."
               sx={{
                 borderRadius: '30px',
                 border: '3px solid #ccc',
                 paddingLeft: '10px',
                 paddingRight: '10px',
                 marginRight: '10px',
-                color: '#000000', // Set dark black color
+                color: 'white', // Set dark black color
                 fontWeight: 'bold', // Set to bold
               }}
             />
@@ -159,7 +167,7 @@ function Navbar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 3 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              <Avatar src="/broken-image.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
@@ -185,18 +193,109 @@ function Navbar() {
               ))}
             </Menu>
           </Box>
+          
         </Toolbar>
       </AppBar>
       {/* Main Content */}
       <Box
         sx={{
-          padding: '30px',
+          padding: '0px',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'left',
         }}
       >
-         {selectedPage === 'ABOUT US' && (
+        {selectedPage === null && (
+          <Container maxWidth="50%"
+          component="main"
+          sx={{ 
+            padding: '50px', 
+            height:'100vh',
+            display:'flex' ,
+            justifyContent: 'center',
+            flexDirection: 'column', 
+            alignItems: 'center',
+            backgroundImage: "url('https://w0.peakpx.com/wallpaper/21/544/HD-wallpaper-%E2%98%86-%D1%A6%C9%9B%D0%BC%CF%83%D1%8F%CE%B1%D0%B2%E2%84%93%C9%9B-%C4%B4%CF%83%CA%8B%D1%8F%D0%B8%C9%9B%CA%8F-%E2%98%86-anime-space-beautiful-journey-sweet-nature-landscape-galaxy-starry-awesome-night-bright-scenery-sky-light-lovely-wheels-wonderful-amazing.jpg')"
+            ,backgroundSize: "cover",
+            backgroundPosition: "center",
+            fontWeight:'bold',
+            color: 'white',
+            
+          }}
+          >
+             <Box
+    sx={{
+      display: 'flex',
+      flexDirection: 'row', // Set the direction to row
+      alignItems: 'center',
+      gap: '20px', // Add gap between avatar and typography
+    }}
+  >
+    <Avatar
+      alt="Your Avatar"
+      src="https://e7.pngegg.com/pngimages/344/793/png-clipart-of-train-on-track-palace-on-wheels-train-station-rail-transport-computer-icons-train-angle-public-transport.png"
+      sx={{ width: 50, height: 50, marginBottom: 10 }}
+    />
+    <Typography variant="h1" sx={{ fontSize: '4em', fontWeight: 'bold', color: 'white',marginTop:'-65px' ,fontFamily:'serif' }}>
+      Your Train Travel
+    </Typography>
+
+    <bold> Safety | Security | Punctuality</bold>
+  </Box>
+  <Box sx={{ border: '10px solid white', padding: '20px', marginTop: '1px', width: '60%' }}>
+              <Typography variant="body1" textAlign={'center'} >
+                <ul>
+                  <li>
+
+              The popularity of train routes and journeys can vary based on factors such as geography,
+            cultural significance, tourist attractions, and economic activities.
+                  </li>
+                  <li>
+            However, there are some iconic and popular train routes globally that are known for their
+                    
+            scenic beauty and cultural significance.
+                  </li>
+                  <li>
+                    
+            The invention of the train is credited to George Stephenson,
+            an English engineer often referred to as the <strong> "Father of Railways."</strong>
+            </li>
+            <li>
+
+            The development of the first steam locomotive and its successful use on a
+            public railway marked a significant milestone in the history of transportation.
+            </li>
+
+            <strong>  Here are key events leading to the invention of the train:</strong>
+
+            <h3>Early Steam Engines:</h3>
+            <li>
+
+            Steam engines had been developed and used in various industries,
+            such as mining and textile, during the 18th century.
+            </li>
+            <li>
+
+            Engineers and inventors were exploring ways to harness steam power for transportation.
+            </li>
+            <li>
+
+            The invention of the steam locomotive and the subsequent expansion of railway
+            networks revolutionized transportation, contributing to the Industrial Revolution
+            and shaping the modern world.
+            </li>
+            <li>
+
+            The impact of the train on commerce, industry, and society was profound,
+            and railways remain a crucial part of global transportation systems today.
+            </li>
+            </ul>
+
+              </Typography>
+            </Box>
+          </Container>
+        )}
+        {selectedPage === 'ABOUT US' && (
           <Container
           maxWidth="xl"
           sx={{
@@ -208,9 +307,9 @@ function Navbar() {
         >
           <Box
             sx={{
-              border: '10px solid black',
+              border: '10px solid grey',
               padding: '30px',
-              height: '110vh',
+              height: '130vh',
               width: '50%',
               display: 'flex',
               flexDirection: 'column',
@@ -279,22 +378,23 @@ function Navbar() {
       </p>             
             </Typography>
             </Box>
-            <Box sx={{ width: '50%', height: '60vh', marginLeft: '20px', display: 'flex', flexDirection: 'column', alignItems: 'left' }}>
+            <Box sx={{ width: '90%', height: '100vh', marginLeft: '50px', display: 'flex', flexDirection: 'column', alignItems: 'left' }}>
               {itemData.map((item, index) => (
                 <ImageListItem key={item.img}>
                   <img
-                    srcSet={${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x}
-                    src={${item.img}?w=164&h=164&fit=crop&auto=format}
+                    srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                    src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
                     alt={item.title}
                     loading="lazy"
                     style={{
-                      marginBottom: '10px',
+                      marginBottom: '20px',
                       height: 'calc(60vh / 2)', // Set the height dynamically
-                      width: '100%',
+                      width: '110%',
                     }}
                   />
                   {index < itemData.length - 1 && <div style={{ marginBottom: '10px' }} />} {/* Add gap between images */}
                 </ImageListItem>
+                
               ))}
             </Box>
         </Container>
@@ -312,10 +412,10 @@ function Navbar() {
           >
             <Box
               sx={{
-                border: '10px solid lightpink',
+                border: '10px solid black',
                 padding: '30px',
                 marginTop: '20px',
-                height: '200vh',
+                height: '160vh',
                 width: '60%',
                 display: 'flex',
                 flexDirection: 'column',
@@ -440,8 +540,8 @@ function Navbar() {
               {itd.map((i, ind) => (
                 <ImageListItem key={i.img}>
                   <img
-                    srcSet={${i.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x}
-                    src={${i.img}?w=164&h=164&fit=crop&auto=format}
+                    srcSet={`${i.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                    src={`${i.img}?w=164&h=164&fit=crop&auto=format`}
                     alt={i.title}
                     loading="lazy"
                     style={{
@@ -468,10 +568,10 @@ function Navbar() {
           >
             <Box
               sx={{
-                border: '10px solid lightblue',
+                border: '10px solid black',
                 padding: '40px',
                 marginTop: '20px',
-                height: '150vh',
+                height: '110vh',
                 width: '50%',
                 display: 'flex',
                 flexDirection: 'column',
@@ -528,8 +628,8 @@ function Navbar() {
               {td.map((it, inde) => (
                 <ImageListItem key={it.img}>
                   <img
-                    srcSet={${it.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x}
-                    src={${it.img}?w=164&h=164&fit=crop&auto=format}
+                    srcSet={`${it.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2`}
+                    src={`${it.img}?w=164&h=164&fit=crop&auto=format`}
                     alt={it.title}
                     loading="lazy"
                     style={{
@@ -545,19 +645,24 @@ function Navbar() {
           </Container>
         )}
 
-        {selectedPage === 'SIGNUP' && (
+{selectedPage === 'SIGNUP' && (
           <Container
-            maxWidth="xl"
-            sx={{
-              padding: '30px',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'left',
-            }}
-          >
+          component="main"
+          maxWidth="50%" // Adjusted the width to make it slightly smaller
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'column',
+            height: '100vh',
+            backgroundImage: "url('https://media.istockphoto.com/id/483928800/photo/railroad-track.jpg?s=612x612&w=0&k=20&c=JeRsKeCKxaJ8jTxa75Q0JlJkTBRwGj_X5S1oTrD5GyA=')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
             <Box
               sx={{
-                border: '10px solid black',
+                border: '5px solid black',
                 padding: '20px',
                 marginTop: '20px',
                 height: '60vh',
@@ -570,13 +675,13 @@ function Navbar() {
               }}
             >
               <Typography variant="h3">
-                Sign Up for an Account
+                <Link to="/signup">Sign Up</Link>
               </Typography>
               <Typography variant="body1">
-                Welcome to our platform! To create an account, click on the 'SIGNUP' button and provide the required information to get started.
+                <strong>Welcome to our platform! To create an account, click on the 'SIGNUP' button and provide the required information to get started.</strong>
               </Typography>
               <Typography variant="body1">
-                Already have an account? Click on 'LOGIN' to access your account.
+                <strong>Already have an account? Click on 'LOGIN' to access your account.</strong>
               </Typography>
             </Box>
           </Container>
@@ -584,17 +689,22 @@ function Navbar() {
 
         {selectedPage === 'LOGIN' && (
           <Container
-            maxWidth="xl"
-            sx={{
-              padding: '30px',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'left',
-            }}
-          >
+          component="main"
+          maxWidth="50%" // Adjusted the width to make it slightly smaller
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'column',
+            height: '100vh',
+            backgroundImage: "url('https://img.pikbest.com/background/20220119/light-snow-winter-train-composite-background_6223276.jpg!sw800')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
             <Box
               sx={{
-                border: '10px solid black',
+                border: '5px solid black',
                 padding: '20px',
                 marginTop: '20px',
                 height: '60vh',
@@ -607,22 +717,62 @@ function Navbar() {
               }}
             >
               <Typography variant="h3">
-                Log In to Your Account
+                <Link to="/login">Login</Link>
               </Typography>
               <Typography variant="body1">
-                If you already have an account, click on the 'LOGIN' button and enter your credentials to access your account.
+                <strong>If you already have an account, click on the 'LOGIN' button and enter your credentials to access your account.</strong>
               </Typography>
               <Typography variant="body1">
-                Forgot your password? No worries! Click on the 'Forgot Password' link to reset it.
+                <strong>Forgot your password? No worries! Click on the 'Forgot Password' link to reset it.</strong>
               </Typography>
             </Box>
           </Container>
         )}
-
-        {/* Add similar blocks for other pages */}
       </Box>
+      <Typography variant="body1" color="white" align="center" style={{ marginTop: 50 , background: 'black'}} 
+      sx={{
+        textAlign: 'initial'
+      }}>
+          {/* Your copyright or other content */}
+          &copy; Your Train Travel. All rights reserved.
+        </Typography>
+    <Toolbar>
+    <IconButton 
+          marginLeft= '100px'
+          edge="end"
+          color="inherit"
+          style={{background:'grey'}}
+          href="https://www.instagram.com/your_instagram_username/"
+          target="_blank"
+          rel="noopener noreferrer"
+          sx={{ marginLeft: 'auto' }} 
+          >
+          <InstagramIcon />
+        </IconButton>
+
+        {/* Facebook Icon */}
+        <IconButton
+          edge="end"
+          color="inherit"
+          style={{background:'grey'}}
+          href="https://www.facebook.com/your_facebook_username/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >
+          <FacebookIcon />
+        </IconButton>
+        <IconButton
+    edge="end"
+    color="inherit"
+    style={{background:'grey'}}
+    href="https://www.twitter.com/your_twitter_username/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <TwitterIcon />
+  </IconButton>
+    </Toolbar>
     </div>
   );
 }
-
 export default Navbar;

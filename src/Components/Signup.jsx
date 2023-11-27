@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { TextField, Button, Container, Paper, Typography, Link } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+
 
 const Signup = () => {
   const [yourname, setYourname] = useState('');
@@ -8,9 +10,12 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [Createpassword, setCreatePassword] = useState('');
   const [confirmpassword, setConfirmPassword] = useState('');
+  const navigate = useNavigate(); 
 
   const handleLogin = () => {
     console.log('Logging in with:', { yourname, phonenumber, username, email, Createpassword, confirmpassword });
+    //history.push('/Booking');
+    navigate('/login'); 
   };
 
   return (
@@ -28,8 +33,8 @@ const Signup = () => {
         backgroundPosition: "center",
       }}
     >
-      <Typography component="h4" variant="h5" textAlign={'center'} fontWeight={'bold'} fontSize={'30px'}>
-        Start Your Dreamy Diaries With Us!!!
+      <Typography component="h4" variant="h5" textAlign={'center'} fontWeight={'bold'} fontSize={'20px'}>
+        START YOUR DREAMY DIARIES WITH US!!
       </Typography>
       <Paper elevation={10} style={{ padding: '30px', display: 'flex-start', flexDirection: 'column', alignItems: 'center', height: "600px", width: "60vh" }}>
         <Typography component="h4" variant="h5" textAlign={'center'} fontWeight={'bold'} fontSize={'20px'}>
@@ -85,14 +90,10 @@ const Signup = () => {
           value={confirmpassword}
           onChange={(o) => setConfirmPassword(o.target.value)}
         />
-        <Typography>
-          <Link color="primary" href="https://mui.com/">
-            Already a User? Login!!
-          </Link>{' '}
-        </Typography>
+          <Link to="/login" >
         <Button variant="contained" style={{ fontWeight: 'bold', marginTop: '20px' }} color="primary" fullWidth onClick={handleLogin}>
-          Login
-        </Button>
+          SIGNUP
+        </Button></Link>
       </Paper>
     </Container>
   );
