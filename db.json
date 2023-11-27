@@ -1,7 +1,7 @@
 {
   "users": [
-    { "id": 1, "username": "Shreya", "password": "123456" },
-    { "id": 2, "usernames": "SreeMathi", "password": "2468" },
-    { "id": 3, "usernames": "Tarika", "password": "1357" }
+    {"name":"Shreya","username": "Shreya_2004","phonenumber":"9025711697","email":"shreya@gmail.com", "password": "123456" },
+    {"name":"Sreemathi","username": "Sreemathi_2005","phonenumber":"9025711690", "email":"sreemathi@gmail.com","password": "2468" },
+    {"name":"Tarika","username": "Tarika_2004","phonenumber":"9025781690","email":"tarika@gmail.com", "password": "1357" }
   ]
 }

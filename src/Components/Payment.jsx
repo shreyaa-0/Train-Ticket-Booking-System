@@ -109,16 +109,15 @@ const Payment = () => {
     justifyContent: 'center',
     alignItems: 'center',
     minHeight: '100vh',
-    backgroundImage: "url('https://img.freepik.com/premium-vector/ticket-outline-icon-set-coupon-vector-icon-collection-blank-linear-tickets-templates-isolated-vector-tickets-vector-illustration_564974-655.jpg')",
-  };
+    backgroundImage: "url('https://media.cnn.com/api/v1/images/stellar/prod/191203174218-sunset-3277237-1920-akif-qureshipixabay.jpg?q=w_1600,h_900,x_0,y_0,c_fill/h_618')",  };
   
   const formStyle = {
     backgroundColor: '#fff',
     padding: '60px',
     borderRadius: '10px',
     boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-    height: '550px',
-    width: '400px',
+    height: '700px',
+    width: '600px',
     boxSizing: 'border-box',
    };
   
